@@ -22,9 +22,12 @@ public class TypingSpeedGame {
 		int numChars = typedSentence.length();
 		wordPerMinute = (int) ((((double) numChars / 5) / seconds) * 60);
 		
-		System.out.println("TypedWords: /n"+typedSentence);
+		System.out.println("TypedWords: \n"+typedSentence);
 		System.out.println("Your WPM is " + wordPerMinute);
 	}
-	
+	public void calculateAccuracyPercent(String testingSentence, String typedSentence) {
+		System.out.println("Testing Sentence Length: "+testingSentence.length());
+		System.out.println("Typed Sentence Length: "+typedSentence.length());
+	}
 
 }

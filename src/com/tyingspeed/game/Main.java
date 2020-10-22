@@ -7,7 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		TypingSpeedGame game = new TypingSpeedGame();
-		System.out.println(game.getTestingSentence());
+		String testingSentence = game.getTestingSentence();
+		System.out.println(testingSentence);
 		
 		double startTime = LocalTime.now().toNanoOfDay();
 		
@@ -15,8 +16,8 @@ public class Main {
 		String typedSentence = scanner.nextLine();
 		
 		double endTime = LocalTime.now().toNanoOfDay();
-		game.getWordPerMinute(startTime,endTime,typedSentence);
-				
+		game.calculateWordPerMinute(startTime,endTime,typedSentence);
+		game.calculateAccuracyPercent(testingSentence,typedSentence);
 	}
 
 }
