@@ -15,7 +15,7 @@ public class Main {
 		String typedSentence = scanner.nextLine();
 		
 		double endTime = LocalTime.now().toNanoOfDay();
-		game.getWordPerMinute(startTime,endTime);
+		game.getWordPerMinute(startTime,endTime,typedSentence);
 				
 	}
 

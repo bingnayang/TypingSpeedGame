@@ -16,15 +16,14 @@ public class TypingSpeedGame {
 		return testingSentences[randSentence];
 	}
 	
-	public void getWordPerMinute(double startTime, double endTime) {
+	public void calculateWordPerMinute(double startTime, double endTime, String typedSentence) {
 		double elapsedTime = endTime - startTime;
 		double seconds = elapsedTime / 1000000000.0;
-
-		System.out.println("ElapsedTime Start: "+startTime);
-		System.out.println("ElapsedTime End: "+endTime);
-		System.out.println("ElapsedTime: "+elapsedTime);
-		System.out.println("Second: "+seconds);
-
+		int numChars = typedSentence.length();
+		wordPerMinute = (int) ((((double) numChars / 5) / seconds) * 60);
+		
+		System.out.println("TypedWords: /n"+typedSentence);
+		System.out.println("Your WPM is " + wordPerMinute);
 	}
 	
 
