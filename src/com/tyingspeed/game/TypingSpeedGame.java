@@ -1,5 +1,8 @@
 package com.tyingspeed.game;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class TypingSpeedGame {
@@ -25,9 +28,49 @@ public class TypingSpeedGame {
 		System.out.println("TypedWords: \n"+typedSentence);
 		System.out.println("Your WPM is " + wordPerMinute);
 	}
+	
 	public void calculateAccuracyPercent(String testingSentence, String typedSentence) {
+		int matchCount = 0;
+		int errorCount = 0;
+		
 		System.out.println("Testing Sentence Length: "+testingSentence.length());
 		System.out.println("Typed Sentence Length: "+typedSentence.length());
+		
+		String[] TestingArray = new String[testingSentence.length()];
+		String[] TypedArray = new String[typedSentence.length()];
+		for (int i = 0; i < testingSentence.length(); i++) {
+			TestingArray[i] = Character.toString(testingSentence.charAt(i));
+		}
+		for (int i = 0; i < typedSentence.length(); i++) {
+			TypedArray[i] = Character.toString(typedSentence.charAt(i));
+		}
+		
+		
+		// For testing
+		System.out.println("Testing Array:");
+		for(int i=0; i<TestingArray.length; i++) {
+			System.out.println(i+" : "+TestingArray[i]);
+		}
+		System.out.println();
+		System.out.println("Typed Array:");
+		for(int i = 0; i < TypedArray.length; i++) {
+			System.out.println(i+" : "+TypedArray[i]);
+		}
+		
+		// Check two string array
+		for(int i=0; i<TypedArray.length; i++) {
+			for(int j=0; j<TestingArray.length; i++) {
+				if(TestingArray[i].equals(TypedArray[i])) {
+					matchCount++;
+					break;
+				}
+			}
+		}
+
+		
+		System.out.println("Match Count: "+matchCount);
+//		System.out.println("Error Count: "+errorCount);
+		
 	}
 
 }
