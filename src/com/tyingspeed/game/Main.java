@@ -7,6 +7,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		TypingSpeedGame game = new TypingSpeedGame();
+		
+		startMenu();	
+		
 		String testingSentence = game.getTestingSentence();
 		System.out.println(testingSentence);
 		
@@ -18,6 +21,11 @@ public class Main {
 		double endTime = LocalTime.now().toNanoOfDay();
 		game.calculateWordPerMinute(startTime,endTime,typedSentence);
 		game.calculateAccuracyPercent(testingSentence,typedSentence);
+	}
+	
+	public static void startMenu() {
+		System.out.println("Hello! Welcome to the Word Per Minute Typing Game");
+
 	}
 
 }

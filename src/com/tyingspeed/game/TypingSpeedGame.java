@@ -4,9 +4,13 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 public class TypingSpeedGame {
-	private String[] testingSentences = { "We cross time zones, which may complicate our medication schedules.\n",
+	private String[] testingSentences = { 
+			"We cross time zones, which may complicate our medication schedules.\n",
 			"There are always situations when writers have difficulties getting their words down on paper.",
-			"We hope that you have found this sentence tool to be fun and interesting." };
+			"We hope that you have found this sentence tool to be fun and interesting.",
+			"Chain length is the number of words to look back when generating a new word."
+			};
+	
 	private int wordPerMinute;
 	private double accuracyPercent;
 	private DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -49,12 +53,16 @@ public class TypingSpeedGame {
 //			System.out.println(TypedArray[i] + " = " + TestingArray[i]);
 			if (TypedArray[i].equals(TestingArray[i])) {
 				matchCount++;
+			}else {
+				errorCount++;
 			}
+			
 		}
 		
 		accuracyPercent = ((double)matchCount/(double)TestingArray.length)*100;
 
-//		System.out.println("Match Count: " + matchCount);
+		System.out.println("Match Count: " + matchCount);
+		System.out.println("Error Count: "+errorCount);
 //		System.out.println("TestingArray Length: "+TestingArray.length);
 		System.out.println("Accuracy Percent: "+decimalFormat.format(accuracyPercent)+"%");
 	}
