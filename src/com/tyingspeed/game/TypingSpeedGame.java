@@ -1,11 +1,7 @@
 package com.tyingspeed.game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.text.DecimalFormat;
 import java.util.Random;
-import java.util.Set;
 
 public class TypingSpeedGame {
 	private String[] testingSentences = { "We cross time zones, which may complicate our medication schedules.\n",
@@ -13,6 +9,7 @@ public class TypingSpeedGame {
 			"We hope that you have found this sentence tool to be fun and interesting." };
 	private int wordPerMinute;
 	private double accuracyPercent;
+	private DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
 	public String getTestingSentence() {
 		Random random = new Random();
@@ -26,17 +23,16 @@ public class TypingSpeedGame {
 		double seconds = elapsedTime / 1000000000.0;
 		int numChars = typedSentence.length();
 		wordPerMinute = (int) ((((double) numChars / 5) / seconds) * 60);
-
-		System.out.println("TypedWords: \n" + typedSentence);
-		System.out.println("Your WPM is " + wordPerMinute);
+//		System.out.println("TypedWords: \n" + typedSentence);
+		System.out.println("WPM: " + wordPerMinute);
 	}
 
 	public void calculateAccuracyPercent(String testingSentence, String typedSentence) {
 		int matchCount = 0;
 		int errorCount = 0;
 
-		System.out.println("Testing Sentence Length: " + testingSentence.length());
-		System.out.println("Typed Sentence Length: " + typedSentence.length());
+//		System.out.println("Testing Sentence Length: " + testingSentence.length());
+//		System.out.println("Typed Sentence Length: " + typedSentence.length());
 
 		String[] TestingArray = new String[testingSentence.length()];
 		String[] TypedArray = new String[typedSentence.length()];
@@ -50,17 +46,17 @@ public class TypingSpeedGame {
 
 		// Check two string array
 		for (int i = 0; i < TypedArray.length; i++) {
-			System.out.println(TypedArray[i] + " = " + TestingArray[i]);
+//			System.out.println(TypedArray[i] + " = " + TestingArray[i]);
 			if (TypedArray[i].equals(TestingArray[i])) {
 				matchCount++;
 			}
 		}
 		
-		double accuracyPercent = ((double)matchCount/(double)TestingArray.length)*100;
+		accuracyPercent = ((double)matchCount/(double)TestingArray.length)*100;
 
-		System.out.println("Match Count: " + matchCount);
-		System.out.println("TestingArray Length: "+TestingArray.length);
-		System.out.println("Accuracy Percent: "+accuracyPercent);
+//		System.out.println("Match Count: " + matchCount);
+//		System.out.println("TestingArray Length: "+TestingArray.length);
+		System.out.println("Accuracy Percent: "+decimalFormat.format(accuracyPercent)+"%");
 	}
 
 }
