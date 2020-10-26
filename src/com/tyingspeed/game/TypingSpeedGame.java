@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 public class TypingSpeedGame {
+	
 	private String[] testingSentences = { 
 			"We cross time zones, which may complicate our medication schedules.\n",
 			"There are always situations when writers have difficulties getting their words down on paper.",
@@ -63,7 +64,6 @@ public class TypingSpeedGame {
 
 		System.out.println("Match Count: " + matchCount);
 		System.out.println("Error Count: "+errorCount);
-//		System.out.println("TestingArray Length: "+TestingArray.length);
 		System.out.println("Accuracy Percent: "+decimalFormat.format(accuracyPercent)+"%");
 	}
 
